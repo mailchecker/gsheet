@@ -5,9 +5,8 @@ st.title("Read Google Sheet as DataFrame")
 
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 
-sheet_data = [{'Timestamp': '2024-01-03', 'User_Input': 'input', 'User_Output': 'output'}]
-conn.update(worksheet="sheet1", data=sheet_data)
-
+#sheet_data = [{'Timestamp': '2024-01-03', 'User_Input': 'input', 'User_Output': 'output'}]
+#conn.update(worksheet="sheet1", data=sheet_data)
 
 df = conn.read(worksheet="sheet1")
 st.dataframe(df)
