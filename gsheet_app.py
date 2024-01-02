@@ -4,11 +4,12 @@ from streamlit_gsheets import GSheetsConnection
 # Create a connection object.
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 
-df = conn.read()
+df = conn.read(worksheet="시트1")
+st.dataframe(df)
 
 # Print results.
-for row in df.itertuples():
-    st.write(f"{row.name} has a :{row.date}:")
+#for row in df.itertuples():
+#    st.write(f"{row.name} has a :{row.date}:")
 
 
 
