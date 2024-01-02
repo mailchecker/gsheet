@@ -1,16 +1,29 @@
-# streamlit_app.py
-
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 
-# Create a connection object.
-conn = st.connection("gsheets", type=GSheetsConnection)
+st.title("Read Google Sheet as DataFrame")
 
-df = conn.read()
+conn = st.experimental_connection("gsheets", type=GSheetsConnection)
+df = conn.read(worksheet="sheet 1")
+
+st.dataframe(df)
+
+
+
+
+
+# streamlit_app.py
+#import streamlit as st
+#from streamlit_gsheets import GSheetsConnection
+
+# Create a connection object.
+#conn = st.connection("gsheets", type=GSheetsConnection)
+
+#df = conn.read()
 
 # Print results.
-for row in df.itertuples():
-    st.write(f"{row.name} has a :{row.date}:")
+#for row in df.itertuples():
+#    st.write(f"{row.name} has a :{row.date}:")
 
 
 
