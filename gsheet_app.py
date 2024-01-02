@@ -12,7 +12,8 @@ df = conn.read(worksheet="sheet1")
 st.dataframe(df)
 
 
-
+if st.button('Refresh Data'):
+    st.experimental_rerun()
 
 
 # streamlit_app.py
