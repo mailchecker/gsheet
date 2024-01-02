@@ -2,16 +2,9 @@ import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 
 st.title("Read Google Sheet as DataFrame")
-
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
-#sheet_data = [{'Timestamp': '2024-01-03', 'User_Input': 'input', 'User_Output': 'output'}]
-#conn.update(worksheet="sheet1", data=sheet_data)
-
 df = conn.read(worksheet="sheet1")
 st.dataframe(df)
-
-if st.button('Refresh Data'):
-    st.experimental_rerun()
 
 
 # streamlit_app.py
