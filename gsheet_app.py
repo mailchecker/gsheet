@@ -9,7 +9,7 @@ st.title("Read Google "+ golf_course_name  +" as DataFrame")
 
 
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
-df = conn.read(worksheet=golf_course_name)
+df = conn.read(worksheet="sheet2")
 st.dataframe(df)
 
 
@@ -17,7 +17,7 @@ st.dataframe(df)
 df = psql.load_births()
 if st.button("Create worksheet"):
     df = conn.create(
-        worksheet="sheet3",
+        worksheet="sheet2",
         data=df,
     )
     st.cache_data.clear()
