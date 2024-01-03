@@ -17,7 +17,7 @@ st.dataframe(df)
 df = psql.load_births()
 if st.button("Create worksheet"):
     df = conn.create(
-        worksheet="sheet2",
+        worksheet="sheet3",
         data=df,
     )
     st.cache_data.clear()
