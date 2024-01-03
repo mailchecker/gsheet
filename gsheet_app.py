@@ -7,7 +7,7 @@ golf_course_name = params.get("gname", ["sheet1"])[0]  # 'gname' 파라미터가
 st.title("Read Google "+ golf_course_name  +" as DataFrame")
 
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
-df = conn.read(worksheet=golf_course_name)
+df = conn.read(worksheet="sheet3")
 st.dataframe(df)
 if st.button("Update worksheet"):
   st.cache_data.clear()
@@ -16,7 +16,7 @@ if st.button("Update worksheet"):
 df = psql.load_births()
 if st.button("Create worksheet"):
     df = conn.create(
-        worksheet=golf_course_name,
+        worksheet="sheet3",
         data=df,
     )
     st.cache_data.clear()
