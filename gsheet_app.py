@@ -3,8 +3,8 @@ from streamlit_gsheets import GSheetsConnection
 
 st.title("Read Google Sheet as DataFrame")
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
-df = conn.read(worksheet="sheet1")
-st.dataframe(df)
+#df = conn.read(worksheet="sheet1")
+#st.dataframe(df)
 
 
 # streamlit_app.py
