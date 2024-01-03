@@ -11,7 +11,9 @@ st.title("Read Google "+ golf_course_name  +" as DataFrame")
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 df = conn.read(worksheet="sheet2")
 st.dataframe(df)
-
+if st.button("Update worksheet"):
+  st.cache_data.clear()
+  st.experimental_rerun()
 
 
 df = psql.load_births()
@@ -28,9 +30,7 @@ st.dataframe(df.head(10))
 
 
 
-if st.button("Update worksheet"):
-  st.cache_data.clear()
-  st.experimental_rerun()
+
 
 
 # streamlit_app.py
