@@ -4,7 +4,7 @@ from streamlit_gsheets import GSheetsConnection
 params = st.experimental_get_query_params()
 golf_course_name = params.get("gname", ["sheet1"])[0]  # 'gname' 파라미터가 없는 경우 기본값
 
-st.title("Read Google Sheet as DataFrame")
+st.title("Read Google "+ golf_course_name  +" as DataFrame")
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 df = conn.read(worksheet=golf_course_name)
 st.dataframe(df)
