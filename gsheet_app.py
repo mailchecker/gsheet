@@ -7,7 +7,9 @@ df = conn.read()
 st.dataframe(df)
 
 
-
+if st.button("Update worksheet"):
+  st.cache_data.clear()
+  st.experimental_rerun()
 
 
 # streamlit_app.py
