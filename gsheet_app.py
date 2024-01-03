@@ -1,10 +1,26 @@
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
+import pandasql as psql
 
 params = st.experimental_get_query_params()
 golf_course_name = params.get("gname", ["sheet1"])[0]  # 'gname' 파라미터가 없는 경우 기본값
-
 st.title("Read Google "+ golf_course_name  +" as DataFrame")
+
+
+
+df = psql.load_births()
+if st.button("Create new worksheet"):
+    df = conn.create(
+        worksheet="sheet3",
+        data=df,
+    )
+    st.cache_data.clear()
+    st.experimental_rerun()
+
+# Display our Spreadsheet as st.dataframe
+st.dataframe(df.head(10))
+
+
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 df = conn.read(worksheet=golf_course_name)
 st.dataframe(df)
